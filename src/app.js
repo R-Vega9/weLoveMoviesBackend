@@ -7,7 +7,6 @@ const moviesRouter = require("./movies/movies.router");
 const theatersRouter = require("./theaters/theaters.router");
 const reviewsRouter = require("./reviews/reviews.router");
 
-console.log(process.env.PRODUCTION_DATABASE_URL);
 const app = express();
 
 app.use(cors());
