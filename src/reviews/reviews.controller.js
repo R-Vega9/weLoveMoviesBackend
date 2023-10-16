@@ -1,6 +1,7 @@
 const reviewsService = require("./reviews.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
+//Check if review exists
 async function reviewExists(req, res, next) {
   const foundReview = await reviewsService.read(Number(req.params.reviewId));
 
@@ -15,6 +16,7 @@ async function reviewExists(req, res, next) {
   });
 }
 
+//Controller function to update review
 async function update(req, res, next) {
   const newReview = {
     ...res.locals.review,
@@ -27,7 +29,8 @@ async function update(req, res, next) {
   res.json({ data: updatedReview });
 }
 
-async function destroy(req, res, next) {
+//Controller function to remove reviews
+async function destroy(req, res, next) { 
   const id = Number(req.params.reviewId);
   await reviewsService.destroy(id);
   res.sendStatus(204);

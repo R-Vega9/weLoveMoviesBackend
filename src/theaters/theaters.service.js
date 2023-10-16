@@ -1,5 +1,7 @@
 const knex = require("../db/connection");
 
+
+//Knex function to get all theaters
 function getAllTheaters() {
   return knex("theaters as t")
     .join("movies_theaters as  mt", "t.theater_id", "mt.theater_id")
